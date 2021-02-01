@@ -1,15 +1,49 @@
-<div *ngIf="hero">
+<div *ngIf="hero" class="hero-detail">
   <h2>{{hero.name | uppercase}} Details:</h2>
   <div>
-    <span>id:</span>
-    <strong>{{hero.id}}</strong>
     <div>
-      <label>name:
-        <input [(ngModel)]="hero.name" placeholder="Hero name">
-      </label>
+      <span>id: </span>
+      <strong>{{hero.id}}</strong>
     </div>
+    <div>
+      <span>Age: </span>
+      <strong>{{hero.age}}</strong>
+    </div>
+    <div>
+      <span>Level: </span>
+      <strong>{{hero.level}}</strong>
+    </div>
+      <mat-form-field class="example-form-field forms_mat">
+        <mat-label>Name</mat-label>
+        <input matInput type="text"[formControl]="nameFormControl" [(ngModel)]="hero.name">
+        <mat-error *ngIf="nameFormControl.hasError('minlength')">
+          Minimum 3 characters
+        </mat-error>
+        <mat-error *ngIf="nameFormControl.hasError('pattern')">
+          Only Latin alphabet
+        </mat-error>
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field> <br>
+    <mat-form-field appearance="fill" class="forms_mat">
+      <mat-label>Class</mat-label>
+      <mat-select disableRipple [(ngModel)] = "hero.heroClass">
+        <mat-option value="Barbarian">Barbarian</mat-option>
+        <mat-option value="Cleric">Cleric</mat-option>
+        <mat-option value="Fighter">Fighter</mat-option>
+        <mat-option value="Rogue">Rogue</mat-option>
+        <mat-option value="Wizard">Wizard</mat-option>
+      </mat-select>
+    </mat-form-field><br>
+    <mat-form-field appearance="fill" class="forms_mat">
+      <mat-label>Friends</mat-label>
+      <mat-select multiple [formControl]="friendsControl" [(ngModel)] = "hero.friends">
+        <mat-option *ngFor="let hero2 of heroes" [value]="hero2.name">{{hero2.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
-  <button (click)="save()">save</button>
+  <button (click)="save()" [disabled]="anyErrors()">save</button>
   <button (click)="goBack()">go back</button>
 </div>
 

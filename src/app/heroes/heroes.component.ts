@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-heroes',
@@ -18,10 +19,9 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  add(name: string): void {
+  add(name: string, age: number, level: number, heroClass: string): void {
     name = name.trim();
-    if (!name) { return; }
-    this.heroService.addHero({ name } as Hero)
+    this.heroService.addHero({ name, age, level, heroClass } as Hero)
       .subscribe(hero => {
         this.heroes.push(hero);
       });
@@ -35,5 +35,38 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     this.heroService.getHeroes().subscribe(heroes => this.heroes =  heroes);
   }
+
+  levelFormControl: FormControl = new FormControl('', [
+    Validators.required,
+    Validators.max(100)
+  ]);
+
+  ageFormControl: FormControl = new FormControl('', [
+    Validators.required,
+    Validators.max(100)
+  ]);
+
+  nameFormControl: FormControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(3),
+    Validators.pattern('^[a-zA-Z ]*')
+  ]);
+
+  classControl: FormControl = new FormControl('', Validators.required);
+
+  anyErrors() {
+    if (this.classControl.hasError('required') ||
+        this.ageFormControl.hasError('required') ||
+        this.nameFormControl.hasError('required') ||
+        this.nameFormControl.hasError('pattern') ||
+        this.nameFormControl.hasError('minlength') ||
+        this.ageFormControl.hasError('max') ||
+        this.levelFormControl.hasError('max') ||
+        this.levelFormControl.hasError('required')) {
+    return true;
+    }
+    return false;
+  }
+
 
 }
