@@ -27,7 +27,8 @@
 </div>
   <mat-autocomplete #auto="matAutocomplete">
     <mat-option *ngFor="let hero of heroes$ | async">
-      <a routerLink="/detail/{{hero.id}}">
+      <a routerLink="/detail/{{hero.id}}"
+         (click)="refresh()">
         {{hero.name}}
       </a>
     </mat-option>

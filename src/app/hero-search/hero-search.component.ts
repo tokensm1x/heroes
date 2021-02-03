@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 
-import {startWith, map} from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import {
-   debounceTime, distinctUntilChanged, switchMap
+   debounceTime, delay, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
 
 import { Hero } from '../hero';
@@ -20,10 +20,21 @@ export class HeroSearchComponent implements OnInit {
   heroes$: Observable<Hero[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private heroService: HeroService) {}
+  constructor(private heroService: HeroService,
+              public router: Router) {}
 
   search(term: string): void {
     this.searchTerms.next(term);
+  }
+
+  refresh(): void {
+    const currentUrl = this.router.url;
+    setTimeout(() => {
+      if (currentUrl !== this.router.url) {
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.navigateByUrl(this.router.url);
+      }
+    }, 300);
   }
 
   ngOnInit(): void {
