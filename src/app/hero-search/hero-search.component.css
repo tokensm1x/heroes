@@ -14,8 +14,8 @@
   background-color: #607D8B;
 }
 
-.search-result li a {
-  color: #888;
+ a {
+  color: #d4cac5;
   display: block;
   text-decoration: none;
 }
@@ -31,6 +31,19 @@
   height: 20px;
 }
 
+.search_icon {
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.search {
+  display: flex;
+}
 
 ul.search-result {
   margin-top: 0;

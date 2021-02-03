@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormControl } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
+
+import {startWith, map} from 'rxjs/operators';
 
 import {
    debounceTime, distinctUntilChanged, switchMap
@@ -33,5 +35,7 @@ export class HeroSearchComponent implements OnInit {
 
       switchMap((term: string) => this.heroService.searchHeroes(term)),
     );
+
   }
+
 }

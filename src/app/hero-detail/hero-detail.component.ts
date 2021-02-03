@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
 
 import { HeroService } from '../hero.service';
 
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, NgForm } from '@angular/forms';
 
 
 @Component({
@@ -17,6 +17,8 @@ import { FormControl, Validators } from '@angular/forms';
 export class HeroDetailComponent implements OnInit {
 
   @Input() hero: Hero;
+
+  newForm : NgForm;
 
   heroes: Hero[];
 
@@ -32,7 +34,10 @@ export class HeroDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHero();
+  }
 
+  fff(val) {
+    console.log(val)
   }
 
   getHero(): void {
@@ -65,18 +70,4 @@ export class HeroDetailComponent implements OnInit {
     Validators.minLength(3),
     Validators.pattern('^[a-zA-Z ]*')
   ]);
-
-
-  anyErrors(): boolean {
-    if (this.nameFormControl.hasError('required') ||
-        this.nameFormControl.hasError('pattern') ||
-        this.nameFormControl.hasError('minlength')) {
-    return true;
-    }
-    return false;
-  }
-
-  selectedArr(str): void{
-
-  }
 }

@@ -19,6 +19,16 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogFormAddComponent } from './dialog-form-add/dialog-form-add.component';
+import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +37,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    DialogFormAddComponent,
+    DialogDeleteComponent
+  ],
+  entryComponents: [
+    DialogFormAddComponent,
+    DialogDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +58,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSliderModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatCardModule,
+    MatAutocompleteModule,
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
