@@ -38,3 +38,13 @@ input {
   color: #fff;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.mat-card {
+  padding: 16px 0;
+}
+
+.mat-card-header {
+  padding-left: 5px;
+}
+
+
