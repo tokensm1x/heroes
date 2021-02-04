@@ -1,0 +1,36 @@
+<!--<div id="search-component">
+  <div class="search">
+    <label class="search_icon" for="search-box"><mat-icon>person_search</mat-icon></label>
+    <input #searchBox
+           id="search-box"
+           (input)="search(searchBox.value)"
+            placeholder="Hero search"/>
+  </div>
+
+  <ul class="search-result">
+    <li *ngFor="let hero of heroes$ | async" >
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>-->
+
+<form class="example-form">
+<div class="search">
+  <label class="search_icon" for="search-box"><mat-icon>person_search</mat-icon></label>
+  <input #searchBox
+         id="search-box"
+         (input)="search(searchBox.value)"
+         placeholder="Hero search"
+         [matAutocomplete]="auto">
+</div>
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let hero of heroes$ | async">
+      <a routerLink="/detail/{{hero.id}}"
+         (click)="refresh()">
+        {{hero.name}}
+      </a>
+    </mat-option>
+  </mat-autocomplete>
+</form>

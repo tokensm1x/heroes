@@ -1,0 +1,113 @@
+<!--<div class="add_form">
+  <form #form="ngForm">
+  <mat-form-field class="example-form-field">
+    <mat-label>Hero name</mat-label>
+    <input matInput type="text" #heroName [formControl]="nameFormControl">
+    <mat-error *ngIf="nameFormControl.hasError('minlength')">
+      Minimum 3 characters
+    </mat-error>
+    <mat-error *ngIf="nameFormControl.hasError('pattern')">
+      Only Latin alphabet
+    </mat-error>
+    <mat-error *ngIf="nameFormControl.hasError('required')">
+      Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field> <br>
+
+  <mat-form-field class="example-form-field">
+    <mat-label>Hero age</mat-label>
+    <input matInput #heroAge type="number" [formControl]="ageFormControl">
+    <mat-error *ngIf="ageFormControl.hasError('max')">
+      Max possible age is 100
+    </mat-error>
+    <mat-error *ngIf="ageFormControl.hasError('min')">
+      Min possible age is 1
+    </mat-error>
+    <mat-error *ngIf="ageFormControl.hasError('required')">
+      Age is <strong>required</strong>
+    </mat-error>
+  </mat-form-field> <br>
+
+  <mat-form-field class="example-form-field">
+    <mat-label>Hero level</mat-label>
+    <input matInput #heroLevel type="number" [formControl]="levelFormControl">
+    <mat-error *ngIf="levelFormControl.hasError('max')">
+      Max possible value is 100
+    </mat-error>
+    <mat-error *ngIf="levelFormControl.hasError('min')">
+      Min possible value is 1
+    </mat-error>
+    <mat-error *ngIf="levelFormControl.hasError('required')">
+      Level is <strong>required</strong>
+    </mat-error>
+  </mat-form-field><br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select a class</mat-label>
+    <mat-select #heroClass [formControl]="classControl" required>
+      <mat-option value="Barbarian">Barbarian</mat-option>
+      <mat-option value="Cleric">Cleric</mat-option>
+      <mat-option value="Fighter">Fighter</mat-option>
+      <mat-option value="Rogue">Rogue</mat-option>
+      <mat-option value="Wizard">Wizard</mat-option>
+    </mat-select>
+    <mat-error *ngIf="classControl.hasError('required')">Please choose a class</mat-error>
+  </mat-form-field> <br>
+
+</form>
+  <button color="primary"
+
+          mat-raised-button [disabled]="anyErrors()"
+          (click)="add(heroName.value, heroAge.value, heroLevel.value, heroClass.value);
+                   heroAge.value=''; heroName.value=''; heroLevel.value=''; heroClass.value = '';
+                   check()">
+          add
+  </button>
+
+</div> -->
+
+
+
+<!--<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="delete" title="delete hero"
+            (click)="delete(hero)">x</button>
+  </li>
+</ul> -->
+<div class="heroes_table">
+<h3 class="mat-display-1">Heroes</h3>
+<button class="dialog_button"
+        mat-raised-button
+        color="primary"
+        (click)="openDialog()">New hero
+</button>
+<table mat-table [dataSource]="heroes" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell  *matCellDef="let hero"> {{hero.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell routerLink="/detail/{{hero.id}}" *matCellDef="let hero" class="hero_name"> {{hero.name}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+  <th mat-header-cell *matHeaderCellDef ></th>
+  <td mat-cell *matCellDef="let hero" >
+      <button mat-icon-button color="primary" (click)="openDialogDelete(hero)">
+          <mat-icon>delete</mat-icon>
+      </button>
+  </td>
+</ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+</table>
+</div>
+
+

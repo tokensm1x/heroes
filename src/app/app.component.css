@@ -1,0 +1,44 @@
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+nav a:visited, a:link {
+  color: #334953;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #cfd8dc;
+}
+nav a.active {
+  color: #039be5;
+}
+h1 {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+button a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header_menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap row;
+  height: 80px;
+  
+}
+

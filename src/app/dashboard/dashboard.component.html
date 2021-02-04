@@ -1,0 +1,7 @@
+<h3 class="mat-display-1">Top heroes</h3>
+<div class="cards">
+  <mat-card *ngFor="let hero of heroes" class="module hero"
+            routerLink="/detail/{{hero.id}}">
+    <h4>{{hero.name}}</h4>  
+  </mat-card>
+</div>

@@ -1,0 +1,27 @@
+<p>
+  <mat-toolbar color="primary" class="header">
+  <div class="header_menu">
+   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon>menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/dashboard">
+    <mat-icon>dashboard</mat-icon>
+    <span>Dashboard</span>
+  </button>
+  <button mat-menu-item routerLink="/heroes">
+    <mat-icon>group</mat-icon>  
+    <span>Heroes</span>
+  </button>
+</mat-menu>
+  <h1>{{title}}</h1>
+  </div>
+  <app-hero-search></app-hero-search>
+</mat-toolbar>
+</p>
+<!--<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+</nav> -->
+<router-outlet></router-outlet>
+
