@@ -13,14 +13,18 @@ h4 {
   font-size: 20px;
 }
 .module {
-  padding: 20px;
+  padding: 20px 20px 10px;
   text-align: center;
   color: #eee;
-  max-height: 120px;
-  width: 300px;
+  height: 350px;
+  width: 250px;
   background-color: #3f525c;
   border-radius: 2px;
   margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 .module:hover {
   background-color: rgba(194, 24, 91, .6);
@@ -39,17 +43,49 @@ h4 {
   width: 100%;
   justify-content: center;
   flex-flow: wrap row;
+  margin-bottom: 100px;
+}
+
+img {
+  width: 150px;
+  border-radius: 10px;
 }
 
 .spinner {
   margin: 20px 0;
 }
 
+.item_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.price {
+  margin: 5px 0;
+}
+
+.btn_buy {
+  margin-bottom: 10px;
+  background-color: rgba(194, 24, 91, 1);
+  color: #fff;
+}
+
+.btn_buy:hover {
+  background-color: #3f525c;
+  color: #fff;
+}
+
 @media (max-width: 600px) {
   .module {
-    font-size: 10px;
-    max-height: 75px; }
+    width: 300px;
+    max-height: 400px;
   }
+  img {
+    width: 200px;
+  }
+}
 @media (max-width: 1024px) {
   .module {
     min-width: 60px;

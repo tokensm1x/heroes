@@ -10,7 +10,7 @@ button:disabled {
 }
 
 .hero-detail {
-  margin: 15px 0;
+  margin-top: 15px;
   width: 100%;
 }
 
@@ -28,12 +28,6 @@ button:disabled {
   margin: 30px auto;
 }
 
-.card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 input {
   color: #fff;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -44,7 +38,80 @@ input {
 }
 
 .mat-card-header {
-  padding-left: 5px;
+  padding-left: 10px;
 }
 
 
+.spinner {
+  margin: 20px 0;
+}
+
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card_nav {
+  width: 290px;
+}
+
+.info_group {
+  padding-top: 20px;
+}
+
+.equip_group {
+  padding-top: 20px;
+}
+
+.cash {
+  margin-bottom: 20px;
+}
+
+.table_container {
+  margin-top: 20px;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.heroes_table {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+tr, td {
+  outline: none;
+}
+
+tr:hover {
+  background-color: rgb(105, 105, 105);
+}
+
+table {
+  width: 270px;
+  margin: 20px auto;
+}
+
+tr td:last-child {
+  width: 1%;
+  white-space: nowrap;
+  padding-right: 10px;
+}
+
+.hero_name {
+  cursor: pointer;
+}
+
+.mat-display-1 {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  opacity: .8;
+}
+
+mat-divider {
+  margin: 10px 0;
+}

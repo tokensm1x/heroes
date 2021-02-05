@@ -8,6 +8,11 @@ import { HeroService } from '../hero.service';
 
 import { FormControl, Validators, NgForm } from '@angular/forms';
 
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { BottomSheetDialogComponent } from '../bottom-sheet-dialog/bottom-sheet-dialog.component';
+import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-hero-detail',
@@ -26,18 +31,27 @@ export class HeroDetailComponent implements OnInit {
 
   heroesArr: any[];
 
+  loaded: boolean = false;
+
+  info: boolean = true;
+
+  items: string[];
+
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
-    private location: Location
+    private location: Location,
+    private _bottomSheet: MatBottomSheet,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
     this.getHero();
   }
 
-  fff(val) {
-    console.log(val)
+  cardNav(nav): void {
+    if (nav==='info') this.info = true;
+    else this.info = false;
   }
 
   getHero(): void {
@@ -45,9 +59,11 @@ export class HeroDetailComponent implements OnInit {
     this.heroService.getHero(id).
       subscribe(hero => {
         this.hero = hero;
-        this.friendsControl = new FormControl(this.hero.friends)
+        this.friendsControl = new FormControl(this.hero.friends);
+        this.loaded = !this.loaded;
       });
     this.getHeroes();
+
   }
 
   goBack(): void {
@@ -56,7 +72,8 @@ export class HeroDetailComponent implements OnInit {
 
   save(): void {
     this.heroService.updateHero(this.hero)
-      .subscribe(() => this.goBack());
+      .subscribe();
+    this.openBottomSheet(this.hero.name, 'saved');
   }
 
   getHeroes(): void {
@@ -65,9 +82,33 @@ export class HeroDetailComponent implements OnInit {
     });
   }
 
+  openBottomSheet(hero, param): void {
+    this._bottomSheet.open(BottomSheetDialogComponent, { data: {
+      name : hero,
+      param: param
+    } });
+  }
+
+  openDialogDelete(item) {
+    const dialogRef = this.dialog.open(DialogDeleteComponent);
+
+    dialogRef.afterClosed().subscribe((value)=> {
+        if(value==='true') {
+          this.delete(item);
+        };
+    })
+  }
+
+  delete(item: string): void {
+    this.hero.items = this.hero.items.filter(i => i !== item);
+    this.openBottomSheet(item, 'deleted');
+  }
+
   nameFormControl: FormControl = new FormControl('', [
     Validators.required,
     Validators.minLength(3),
     Validators.pattern('^[a-zA-Z ]*')
   ]);
+
+  displayedColumns: string[] = ['name', 'actions'];
 }

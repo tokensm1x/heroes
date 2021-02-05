@@ -5,4 +5,6 @@ export interface Hero {
   level: number;
   heroClass: string;
   friends: string[];
+  cash: number;
+  items: string[];
 }

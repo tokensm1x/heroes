@@ -23,4 +23,47 @@ body, input[type="text"], button {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.mat-bottom-sheet-container {
+  min-width: 300px !important;
+  background-color: #c2185b;
+  color: #fff;
+  min-height: 60px;
+  padding: 0 0px 0px 10px !important;
+}
 
+
+.mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+  display: none !important;
+}
+
+.mat-tab-label{
+  width: 50% !important;
+}
+
+.mat-tab-group {
+  width: 300px !important;
+}
+
+.mat-tab-body {
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 20px;
+}
+
+mat-button-toggle {
+  background-color: rgba(190, 30, 94, .8) !important;
+}
+
+.mat-paginator-container {
+  justify-content: center !important;
+}
+
+.mat-paginator-page-size {
+  display: none !important;
+}
+
+mat-paginator {
+  position: fixed;
+  bottom: 0 !important;
+  width: 100%;
+}

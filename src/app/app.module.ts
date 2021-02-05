@@ -29,6 +29,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogFormAddComponent } from './dialog-form-add/dialog-form-add.component';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { BottomSheetDialogComponent } from './bottom-sheet-dialog/bottom-sheet-dialog.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { StoreComponent } from './store/store.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -39,7 +47,9 @@ import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
     DashboardComponent,
     HeroSearchComponent,
     DialogFormAddComponent,
-    DialogDeleteComponent
+    DialogDeleteComponent,
+    BottomSheetDialogComponent,
+    StoreComponent,
   ],
   entryComponents: [
     DialogFormAddComponent,
@@ -66,7 +76,13 @@ import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
     MatCardModule,
     MatAutocompleteModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatBottomSheetModule,
+    MatTabsModule,
+    MatButtonToggleModule,
+    MatPaginatorModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

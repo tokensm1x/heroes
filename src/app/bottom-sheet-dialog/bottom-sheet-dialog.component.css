@@ -1,0 +1,20 @@
+.bottomSheet {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.bottomSheet_title {
+  margin-bottom: 0;
+}
+
+.bottomSheet_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
