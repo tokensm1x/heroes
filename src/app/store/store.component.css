@@ -1,7 +1,9 @@
 a {
   text-decoration: none;
 }
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 h3 {
@@ -26,16 +28,20 @@ h4 {
   align-items: center;
   justify-content: space-between;
 }
-.module:hover {
-  background-color: rgba(194, 24, 91, .6);
-  cursor: pointer;
 
+.module:last-child {
+  margin-bottom: 70px;
+}
+
+.module:hover {
+  background-color: rgba(194, 24, 91, 0.6);
+  cursor: pointer;
 }
 
 .mat-display-1 {
   margin-bottom: 0px;
   color: #fff;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .cards {
