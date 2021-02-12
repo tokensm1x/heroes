@@ -1,57 +1,57 @@
 <mat-dialog-content>
     <form #form="ngForm">
     <mat-form-field class="example-form-field">
-      <mat-label>Hero name</mat-label>
+      <mat-label>{{ 'addHero.name' | translate }}</mat-label>
       <input matInput type="text" #heroName [formControl]="nameFormControl">
       <mat-error *ngIf="nameFormControl.hasError('minlength')">
-        Minimum 3 characters
+        {{ 'validators.minName' | translate }}
       </mat-error>
       <mat-error *ngIf="nameFormControl.hasError('pattern')">
-        Only Latin alphabet
+        {{ 'validators.alphabet' | translate }}
       </mat-error>
       <mat-error *ngIf="nameFormControl.hasError('required')">
-        Name is <strong>required</strong>
+        {{ 'validators.requiredName' | translate }}
       </mat-error>
     </mat-form-field> <br>
 
     <mat-form-field class="example-form-field">
-      <mat-label>Hero age</mat-label>
+      <mat-label>{{ 'addHero.age' | translate }}</mat-label>
       <input matInput #heroAge type="number" [formControl]="ageFormControl">
       <mat-error *ngIf="ageFormControl.hasError('max')">
-        Max possible age is 100
+        {{ 'validators.maxAge' | translate }}
       </mat-error>
       <mat-error *ngIf="ageFormControl.hasError('min')">
-        Min possible age is 1
+        {{ 'validators.minAge' | translate }}
       </mat-error>
       <mat-error *ngIf="ageFormControl.hasError('required')">
-        Age is <strong>required</strong>
+        {{ 'validators.requiredAge' | translate }}
       </mat-error>
     </mat-form-field> <br>
 
     <mat-form-field class="example-form-field">
-      <mat-label>Hero level</mat-label>
+      <mat-label>{{ 'addHero.level' | translate }}</mat-label>
       <input matInput #heroLevel type="number" [formControl]="levelFormControl">
       <mat-error *ngIf="levelFormControl.hasError('max')">
-        Max possible value is 100
+        {{ 'validators.maxLevel' | translate }}
       </mat-error>
       <mat-error *ngIf="levelFormControl.hasError('min')">
-        Min possible value is 1
+        {{ 'validators.minLevel' | translate }}
       </mat-error>
       <mat-error *ngIf="levelFormControl.hasError('required')">
-        Level is <strong>required</strong>
+        {{ 'validators.requiredLevel' | translate }}
       </mat-error>
     </mat-form-field><br>
 
     <mat-form-field appearance="fill">
-      <mat-label>Select a class</mat-label>
+      <mat-label>{{ 'addHero.select' | translate }}</mat-label>
       <mat-select #heroClass [formControl]="classControl" required>
-        <mat-option value="Barbarian">Barbarian</mat-option>
-        <mat-option value="Cleric">Cleric</mat-option>
-        <mat-option value="Fighter">Fighter</mat-option>
-        <mat-option value="Rogue">Rogue</mat-option>
-        <mat-option value="Wizard">Wizard</mat-option>
+        <mat-option value="Barbarian">{{ 'classes.barbarian' | translate }}</mat-option>
+              <mat-option value="Cleric">{{ 'classes.cleric' | translate }}</mat-option>
+              <mat-option value="Fighter">{{ 'classes.fighter' | translate }}</mat-option>
+              <mat-option value="Rogue">{{ 'classes.rogue' | translate }}</mat-option>
+              <mat-option value="Wizard">{{ 'classes.wizard' | translate }}</mat-option>
       </mat-select>
-      <mat-error *ngIf="classControl.hasError('required')">Please choose a class</mat-error>
+      <mat-error *ngIf="classControl.hasError('required')">{{ 'validators.class' | translate }}</mat-error>
     </mat-form-field> <br>
 
   </form>
@@ -63,13 +63,13 @@
             mat-raised-button [disabled]="anyErrors()"
             (click)="add(heroName.value, heroAge.value, heroLevel.value, heroClass.value);
                      heroAge.value=''; heroName.value=''; heroLevel.value=''; heroClass.value = '';">
-            Add
+                     {{ 'addHero.add' | translate }}
     </button>
 
   <button mat-raised-button
           mat-dialog-close
           color="primary"
           >
-    Close
+          {{ 'addHero.close' | translate }}
   </button>
 </mat-dialog-actions>

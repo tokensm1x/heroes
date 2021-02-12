@@ -1,5 +1,5 @@
 <div class="store_container">
-  <h3 class="mat-display-1">Store</h3>
+  <h3 class="mat-display-1">{{ 'store.title' | translate }}</h3>
   <div class="cards">
     <mat-spinner *ngIf="!loaded" diameter="60" class="spinner"></mat-spinner>
     <mat-card *ngFor="let item of pageItems" class="module">
@@ -8,8 +8,8 @@
         <img [src]="item.image" alt="img">
 
       </div>
-      <span class="price">Price: <strong>{{item.price}}</strong> XRP</span>
-      <button class="btn_buy" mat-raised-button color="accent">BUY</button>
+      <span class="price">{{ 'store.price' | translate }}: <strong>{{item.price}}</strong> XRP</span>
+      <button class="btn_buy" mat-raised-button color="accent">{{ 'store.button' | translate }}</button>
     </mat-card>
   </div>
 <mat-paginator #paginator [length]="15" [pageSize]="5" (click)="changePage(paginator)"></mat-paginator>

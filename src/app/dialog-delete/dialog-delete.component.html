@@ -1,11 +1,11 @@
 <mat-dialog-content>
-  <h1>Are you sure?</h1>
+  <h1>{{ 'dialog.delete.title' | translate }}</h1>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button color="primary"
           mat-dialog-close
           mat-dialog-close="true"
-          mat-raised-button>Delete
+          mat-raised-button>{{ 'dialog.delete.yes' | translate }}
   </button>
 
 <button mat-raised-button
@@ -13,6 +13,6 @@
         mat-dialog-close="false"
         color="primary"
         >
-  No
+        {{ 'dialog.delete.no' | translate }}
 </button>
 </mat-dialog-actions>

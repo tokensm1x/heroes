@@ -7,25 +7,24 @@
 <mat-menu #menu="matMenu">
   <button mat-menu-item routerLink="/dashboard">
     <mat-icon>dashboard</mat-icon>
-    <span>Dashboard</span>
+    <span>{{ 'menu.dashboard' | translate }}</span>
   </button>
   <button mat-menu-item routerLink="/heroes">
     <mat-icon>group</mat-icon>
-    <span>Heroes</span>
+    <span>{{ 'menu.heroes' | translate }}</span>
   </button>
   <button mat-menu-item routerLink="/store">
     <mat-icon>local_grocery_store</mat-icon>
-    <span>Store</span>
+    <span>{{ 'menu.store' | translate }}</span>
   </button>
 </mat-menu>
-  <h1>{{title}}</h1>
+<button mat-icon-button (click)=changeLang()>
+  <mat-icon>language</mat-icon>
+</button>
+  <h1>{{ 'header.title' | translate }}</h1>
   </div>
-  <app-hero-search></app-hero-search>
+    <app-hero-search></app-hero-search>
 </mat-toolbar>
 </p>
-<!--<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
-</nav> -->
 <router-outlet></router-outlet>
 

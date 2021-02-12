@@ -1,5 +1,9 @@
 <div class="bottomSheet">
-<p class="bottomSheet_title"><strong>{{data.name}}</strong> successfully {{data.param}}</p>
+<p class="bottomSheet_title"><strong>{{data.name}} </strong>
+  <span *ngIf="data.param==='saved'">{{ 'dialog.bottomSheet.saved' | translate }}</span>
+  <span *ngIf="data.param==='deleted'">{{ 'dialog.bottomSheet.deleted' | translate }}</span>
+  <span *ngIf="data.param==='added'">{{ 'dialog.bottomSheet.added' | translate }}</span>
+</p>
   <button mat-icon-button class="bottomSheet_btn" (click)="closeBottomSheet()">
     <mat-icon>highlight_off</mat-icon>
   </button>

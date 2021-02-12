@@ -9,7 +9,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpBackend, HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
@@ -37,6 +37,11 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { StoreComponent } from './store/store.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateCacheModule, TranslateCacheSettings, TranslateCacheService } from 'ngx-translate-cache';
+
+
 
 @NgModule({
   declarations: [
@@ -61,7 +66,7 @@ import { MatDividerModule } from '@angular/material/divider';
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
+      InMemoryDataService, { dataEncapsulation: false, passThruUnknownUrl: true}
     ),
     MatSelectModule,
     BrowserAnimationsModule,
@@ -82,9 +87,24 @@ import { MatDividerModule } from '@angular/material/divider';
     MatTabsModule,
     MatButtonToggleModule,
     MatPaginatorModule,
-    MatDividerModule
+    MatDividerModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+
+}
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

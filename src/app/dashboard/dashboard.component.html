@@ -1,4 +1,4 @@
-<h3 class="mat-display-1">Top heroes</h3>
+<h3 class="mat-display-1">{{ 'dashboard.title' | translate }}</h3>
 <div class="cards">
   <mat-spinner *ngIf="!loaded" diameter="60" class="spinner"></mat-spinner>
   <mat-card *ngFor="let hero of heroes" class="module hero"

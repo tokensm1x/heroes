@@ -1,9 +1,9 @@
 <div class="heroes_table">
-  <h3 class="mat-display-1">Heroes</h3>
+  <h3 class="mat-display-1">{{ 'heroes.title' | translate }}</h3>
   <button class="dialog_button"
           mat-raised-button
           color="primary"
-          (click)="openDialog()">New hero
+          (click)="openDialog()">{{ 'heroes.hero' | translate }}
   </button>
   <table mat-table [dataSource]="heroes" class="mat-elevation-z8">
 
@@ -14,7 +14,7 @@
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <th mat-header-cell *matHeaderCellDef> {{ 'heroes.name' | translate }} </th>
       <td mat-cell routerLink="/detail/{{hero.id}}" *matCellDef="let hero" class="hero_name"> {{hero.name}}
       </td>
     </ng-container>
