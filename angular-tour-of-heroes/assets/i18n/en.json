@@ -1,0 +1,79 @@
+{
+  "header": {
+    "title": "Tour of Heroes"
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "heroes": "Heroes",
+    "store": "Store"
+  },
+  "search": {
+    "placeholder": "Hero search"
+  },
+  "dashboard": {
+    "title": "Top heroes"
+  },
+  "heroes": {
+    "title": "Heroes",
+    "name": "Name",
+    "hero": "New hero"
+  },
+  "store": {
+    "title": "Store",
+    "price": "Price",
+    "button": "Buy"
+  },
+  "card": {
+    "title": "Details",
+    "age": "Age",
+    "level": "Level",
+    "info": "Info",
+    "inventory": "Equipment",
+    "name": "Name",
+    "class": "Class",
+    "friends": "Friends",
+    "save": "Save",
+    "back": "Go back",
+    "cash": "Cash",
+    "item": "Item"
+  },
+  "validators": {
+    "minName": "Minimum 3 characters",
+    "alphabet": "Only Latin alphabet",
+    "requiredName": "Name is required",
+    "requiredAge": "Age is required",
+    "requiredLevel": "Level is required",
+    "minAge": "Min possible age is 1",
+    "maxAge": "Max possible age is 100",
+    "minLevel": "Min possible value is 1",
+    "maxLevel": "Max possible value is 100",
+    "class": "Please choose a class"
+  },
+  "classes": {
+    "barbarian": "Barbarian",
+    "cleric": "Cleric",
+    "fighter": "Fighter",
+    "rogue": "Rogue",
+    "wizard": "Wizard"
+  },
+  "addHero": {
+    "add": "Add",
+    "close": "Close",
+    "select": "Select a class",
+    "age": "Hero age",
+    "level": "Hero level",
+    "name": "Hero name"
+  },
+  "dialog": {
+    "delete": {
+      "title": "Are you sure?",
+      "yes": "Delete",
+      "no": "No"
+    },
+    "bottomSheet": {
+      "saved": "successfully saved",
+      "deleted": "successfully deleted",
+      "added": "successfully added"
+    }
+  }
+}
