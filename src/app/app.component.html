@@ -21,9 +21,9 @@
 <button mat-icon-button (click)=changeLang()>
   <mat-icon>language</mat-icon>
 </button>
-  <h1>{{ 'header.title' | translate }}</h1>
+  <h1 *ngIf="translatesLoaded">{{ 'header.title' | translate }}</h1>
   </div>
-    <app-hero-search></app-hero-search>
+    <app-hero-search *ngIf="translatesLoaded"></app-hero-search>
 </mat-toolbar>
 </p>
 <router-outlet></router-outlet>

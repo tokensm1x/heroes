@@ -1,7 +1,7 @@
 <div class="store_container">
-  <h3 class="mat-display-1">{{ 'store.title' | translate }}</h3>
+  <h3 class="mat-display-1" *ngIf="loaded">{{ 'store.title' | translate }}</h3>
   <div class="cards">
-    <mat-spinner *ngIf="!loaded" diameter="60" class="spinner"></mat-spinner>
+    <mat-spinner *ngIf="!loaded" diameter="80" class="spinner"></mat-spinner>
     <mat-card *ngFor="let item of pageItems" class="module">
       <h4>{{item.name.toUpperCase()}}</h4>
       <div class="item_info">

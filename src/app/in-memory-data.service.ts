@@ -37,7 +37,167 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 14, name: 'ECLIPSE', health: '+2', power: '+2', image: 'https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt72195c8d98391772/5fa1f09df9cf41781dad68fe/6692_Assassin_T4_Eclipse.png', price: 1.4},
       {id: 15, name: 'GALEFORCE', health: '+2', power: '+2', image: 'https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltdb840312c272ed27/5fa1f0931f9166620ed88bf5/6671_Marksman_T4_Galeforce.png', price: 2},
     ];
-    return {heroes, items};
+    const translates: any[] = [
+      {
+        "header": {
+          "title": "Tour of Heroes"
+        },
+        "menu": {
+          "dashboard": "Dashboard",
+          "heroes": "Heroes",
+          "store": "Store"
+        },
+        "search": {
+          "placeholder": "Hero search"
+        },
+        "dashboard": {
+          "title": "Top heroes"
+        },
+        "heroes": {
+          "title": "Heroes",
+          "name": "Name",
+          "hero": "New hero"
+        },
+        "store": {
+          "title": "Store",
+          "price": "Price",
+          "button": "Buy"
+        },
+        "card": {
+          "title": "Details",
+          "age": "Age",
+          "level": "Level",
+          "info": "Info",
+          "inventory": "Equipment",
+          "name": "Name",
+          "class": "Class",
+          "friends": "Friends",
+          "save": "Save",
+          "back": "Go back",
+          "cash": "Cash",
+          "item": "Item"
+        },
+        "validators": {
+          "minName": "Minimum 3 characters",
+          "alphabet": "Only Latin alphabet",
+          "requiredName": "Name is required",
+          "requiredAge": "Age is required",
+          "requiredLevel": "Level is required",
+          "minAge": "Min possible age is 1",
+          "maxAge": "Max possible age is 100",
+          "minLevel": "Min possible value is 1",
+          "maxLevel": "Max possible value is 100",
+          "class": "Please choose a class"
+        },
+        "classes": {
+          "barbarian": "Barbarian",
+          "cleric": "Cleric",
+          "fighter": "Fighter",
+          "rogue": "Rogue",
+          "wizard": "Wizard"
+        },
+        "addHero": {
+          "add": "Add",
+          "close": "Close",
+          "select": "Select a class",
+          "age": "Hero age",
+          "level": "Hero level",
+          "name": "Hero name"
+        },
+        "dialog": {
+          "delete": {
+            "title": "Are you sure?",
+            "yes": "Delete",
+            "no": "No"
+          },
+          "bottomSheet": {
+            "saved": "successfully saved",
+            "deleted": "successfully deleted",
+            "added": "successfully added"
+          }
+        }
+      },
+      {
+        "header": {
+          "title": "Тур Героев"
+        },
+        "menu": {
+          "dashboard": "Панель",
+          "heroes": "Герои",
+          "store": "Магазин"
+        },
+        "search": {
+          "placeholder": "Поиск героя"
+        },
+        "dashboard": {
+          "title": "Лучшие герои"
+        },
+        "heroes": {
+          "title": "Герои",
+          "name": "Имя",
+          "hero": "Новый герой"
+        },
+        "store": {
+          "title": "Магазин",
+          "price": "Цена",
+          "button": "Купить"
+        },
+        "card": {
+          "title": "Детали",
+          "age": "Возраст",
+          "level": "Уровень",
+          "info": "Информация",
+          "inventory": "Инвентарь",
+          "name": "Имя",
+          "class": "Класс",
+          "friends": "Друзья",
+          "save": "Сохранить",
+          "back": "Назад",
+          "cash": "Счёт",
+          "item": "Предмет"
+        },
+        "validators": {
+          "minName": "Минимум 3 символа",
+          "alphabet": "Только латинский алфавит",
+          "requiredName": "Введите имя",
+          "requiredAge": "Введите возраст",
+          "requiredLevel": "Введите уровень",
+          "minAge": "Минимум 1",
+          "maxAge": "Максимум 100",
+          "minLevel": "Минимум 1",
+          "maxLevel": "Максимум 100",
+          "class": "Выберите класс"
+        },
+        "classes": {
+          "barbarian": "Варвар",
+          "cleric": "Священник",
+          "fighter": "Воин",
+          "rogue": "Плут",
+          "wizard": "Волшебник"
+        },
+        "addHero": {
+          "add": "Добавить",
+          "close": "Закрыть",
+          "select": "Выберите класс",
+          "age": "Возраст героя",
+          "level": "Уровень героя",
+          "name": "Имя героя"
+        },
+        "dialog": {
+          "delete": {
+            "title": "Вы уверены?",
+            "yes": "Удалить",
+            "no": "Нет"
+          },
+          "bottomSheet": {
+            "saved": "успешно сохранён",
+            "deleted": "успешно удалён",
+            "added": "успешно добавлен"
+          }
+        }
+      }
+    ]
+    return {heroes, items, translates };
   }
 
   genId(heroes: Hero[]): number {

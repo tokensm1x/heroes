@@ -81,7 +81,7 @@
         </div>
   </mat-card-content>
 </div>
-<mat-card-actions>
+<mat-card-actions *ngIf="loaded">
     <button mat-raised-button color="primary" (click)="save()" [disabled]="nameFormControl.invalid">{{ 'card.save' | translate}}</button>
     <button mat-raised-button color="primary" (click)="goBack()">{{ 'card.back' | translate}}</button>
 </mat-card-actions>

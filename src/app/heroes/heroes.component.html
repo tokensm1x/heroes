@@ -1,11 +1,11 @@
 <div class="heroes_table">
-  <h3 class="mat-display-1">{{ 'heroes.title' | translate }}</h3>
-  <button class="dialog_button"
+  <h3 class="mat-display-1" *ngIf="loaded">{{ 'heroes.title' | translate }}</h3>
+  <button *ngIf="loaded" class="dialog_button"
           mat-raised-button
           color="primary"
           (click)="openDialog()">{{ 'heroes.hero' | translate }}
   </button>
-  <table mat-table [dataSource]="heroes" class="mat-elevation-z8">
+  <table *ngIf="loaded" mat-table [dataSource]="heroes" class="mat-elevation-z8">
 
 
     <ng-container matColumnDef="id">

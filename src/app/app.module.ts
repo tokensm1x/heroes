@@ -88,13 +88,14 @@ import { TranslateCacheModule, TranslateCacheSettings, TranslateCacheService } f
     MatButtonToggleModule,
     MatPaginatorModule,
     MatDividerModule,
-    TranslateModule.forRoot({
+    TranslateModule.forRoot()
+    /*TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }
-  })
+  })*/
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -105,6 +106,6 @@ export class AppModule {
 }
 
 
-export function HttpLoaderFactory(http: HttpClient) {
+/*export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
-}
+}*/
