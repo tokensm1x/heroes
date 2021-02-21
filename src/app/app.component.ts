@@ -28,6 +28,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     if(localStorage.getItem('translates')) {
+      this.defaultLang = localStorage.getItem('lang')
       const en = JSON.parse(localStorage.getItem('translates'))[0];
       const ru = JSON.parse(localStorage.getItem('translates'))[1];
       this.translate.setTranslation('en', en);
