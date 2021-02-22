@@ -9,7 +9,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { HttpBackend, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
@@ -37,9 +37,14 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { StoreComponent } from './store/store.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateCacheModule, TranslateCacheSettings, TranslateCacheService } from 'ngx-translate-cache';
+import { TranslateModule } from '@ngx-translate/core';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
+import { HeroService } from './hero.service';
+import { StoreService } from './store.service';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 
 
@@ -55,6 +60,8 @@ import { TranslateCacheModule, TranslateCacheSettings, TranslateCacheService } f
     DialogDeleteComponent,
     BottomSheetDialogComponent,
     StoreComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   entryComponents: [
     DialogFormAddComponent,
@@ -89,15 +96,12 @@ import { TranslateCacheModule, TranslateCacheSettings, TranslateCacheService } f
     MatPaginatorModule,
     MatDividerModule,
     TranslateModule.forRoot()
-    /*TranslateModule.forRoot({
-      loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-      }
-  })*/
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard, HeroService, StoreService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 
@@ -105,7 +109,3 @@ export class AppModule {
 
 }
 
-
-/*export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}*/

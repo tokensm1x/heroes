@@ -17,13 +17,25 @@
     <mat-icon>local_grocery_store</mat-icon>
     <span>{{ 'menu.store' | translate }}</span>
   </button>
+  <button mat-menu-item routerLink="/register" *ngIf="!auth.loggedIn()">
+    <mat-icon>how_to_reg</mat-icon>
+    <span>{{ 'menu.register' | translate }}</span>
+  </button>
+  <button mat-menu-item routerLink="/login" *ngIf="!auth.loggedIn()">
+    <mat-icon>login</mat-icon>
+    <span>{{ 'menu.login' | translate }}</span>
+  </button>
+  <button mat-menu-item *ngIf="auth.loggedIn()" (click)="auth.logoutUser()">
+    <mat-icon>logout</mat-icon>
+    <span>{{ 'menu.logout' | translate }}</span>
+  </button>
 </mat-menu>
 <button mat-icon-button (click)=changeLang()>
   <mat-icon>language</mat-icon>
 </button>
   <h1 *ngIf="translatesLoaded">{{ 'header.title' | translate }}</h1>
   </div>
-    <app-hero-search *ngIf="translatesLoaded"></app-hero-search>
+      <app-hero-search *ngIf="translatesLoaded"></app-hero-search>
 </mat-toolbar>
 </p>
 <router-outlet></router-outlet>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from './auth.service';
 import { TranslatesService } from './translates.service';
 
 
@@ -16,36 +17,32 @@ export class AppComponent implements OnInit{
   translatesLoaded = false;
 
   constructor(private translate: TranslateService,
-    public translates: TranslatesService) {
-    /* if(!localStorage.getItem('lang')) {
-      localStorage.setItem('lang', this.defaultLang);
-      translate.setDefaultLang(this.defaultLang)
-    } else {
-      translate.setDefaultLang(localStorage.getItem('lang'))
-    }*/
-
+    public translates: TranslatesService,
+    public auth: AuthService) {
   }
 
   ngOnInit(): void {
-    if(localStorage.getItem('translates')) {
-      this.defaultLang = localStorage.getItem('lang')
-      const en = JSON.parse(localStorage.getItem('translates'))[0];
-      const ru = JSON.parse(localStorage.getItem('translates'))[1];
-      this.translate.setTranslation('en', en);
-      this.translate.setTranslation('ru', ru);
-      this.translate.setDefaultLang(localStorage.getItem('lang'));
-      this.translatesLoaded = true;
-    } else {
-    this.translates.getTranslates().subscribe((val => {
-      this.translate.setTranslation('en', val[0]);
-      this.translate.setTranslation('ru', val[1]);
-      this.translate.setDefaultLang('en');
-      this.translatesLoaded = true;
-      localStorage.setItem('translates', JSON.stringify(val));
-      localStorage.setItem('lang', this.defaultLang);
-    }))
-  }
-  }
+      this.translates.getTranslates().subscribe((val) => {
+        if ( JSON.stringify(val) === localStorage.getItem('translates')) {
+          this.defaultLang = localStorage.getItem('lang')
+          const en = JSON.parse(localStorage.getItem('translates'))[0];
+          const ru = JSON.parse(localStorage.getItem('translates'))[1];
+          this.translate.setTranslation('en', en);
+          this.translate.setTranslation('ru', ru);
+          this.translate.setDefaultLang(localStorage.getItem('lang'));
+          this.translatesLoaded = true;
+        } else {
+          this.translate.setTranslation('en', val[0]);
+          this.translate.setTranslation('ru', val[1]);
+          this.translate.setDefaultLang('en');
+          this.translatesLoaded = true;
+          localStorage.setItem('translates', JSON.stringify(val));
+          localStorage.setItem('lang', this.defaultLang);
+          }
+      })
+    }
+
+
 
   changeLang() {
     if (this.defaultLang === 'en') {

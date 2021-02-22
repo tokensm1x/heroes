@@ -45,7 +45,10 @@ export class InMemoryDataService implements InMemoryDbService {
         "menu": {
           "dashboard": "Dashboard",
           "heroes": "Heroes",
-          "store": "Store"
+          "store": "Store",
+          "login": "Log in",
+          "logout": "Log out",
+          "register": "Sign up"
         },
         "search": {
           "placeholder": "Hero search"
@@ -124,7 +127,10 @@ export class InMemoryDataService implements InMemoryDbService {
         "menu": {
           "dashboard": "Панель",
           "heroes": "Герои",
-          "store": "Магазин"
+          "store": "Магазин",
+          "login": "Войти",
+          "logout": "Выйти",
+          "register": "Регистрация"
         },
         "search": {
           "placeholder": "Поиск героя"

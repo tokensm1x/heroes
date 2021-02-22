@@ -5,7 +5,10 @@
   "menu": {
     "dashboard": "Панель",
     "heroes": "Герои",
-    "store": "Магазин"
+    "store": "Магазин",
+    "login": "Войти",
+    "logout": "Выйти",
+    "register": "Регистрация"
   },
   "search": {
     "placeholder": "Поиск героя"
