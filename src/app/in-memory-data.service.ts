@@ -118,6 +118,21 @@ export class InMemoryDataService implements InMemoryDbService {
             "deleted": "successfully deleted",
             "added": "successfully added"
           }
+        },
+        "auth": {
+          "log_in" : "Log in",
+          "login": "Log in",
+          "sign_up" : "Sign up",
+          "register": "Register",
+          "password": "Password",
+          "email": "Email",
+          "validation" : {
+            "minPass": "Minimum 6 characters",
+            "patternPass": "a-zA-Z0-9_",
+            "email": "Please enter a valid email address",
+            "requiredEmail": "Email is required",
+            "requiredPass": "Password is required"
+          }
         }
       },
       {
@@ -199,6 +214,21 @@ export class InMemoryDataService implements InMemoryDbService {
             "saved": "успешно сохранён",
             "deleted": "успешно удалён",
             "added": "успешно добавлен"
+          }
+        },
+        "auth": {
+          "log_in" : "Вход",
+          "login": "Войти",
+          "sign_up" : "Регистрация",
+          "register": "Зарегистрироваться",
+          "password": "Пароль",
+          "email": "Почта",
+          "validation" : {
+            "minPass": "Минимум 6 символов",
+            "patternPass": "a-zA-Z0-9_",
+            "email": "Введите правильно почту",
+            "requiredEmail": "Введите почту",
+            "requiredPass": "Введите пароль"
           }
         }
       }

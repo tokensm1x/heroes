@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { TranslatesService } from '../translates.service';
 
 @Component({
   selector: 'app-register',
@@ -10,10 +11,16 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent implements OnInit {
 
+  loaded: boolean = false;
+
   constructor(private auth: AuthService,
-              private router: Router) { }
+              private router: Router,
+              private translates: TranslatesService) { }
 
   ngOnInit(): void {
+    this.translates.getTranslates().subscribe(ts => {
+      this.loaded = true;
+    })
   }
 
   emailFormControl = new FormControl('', [

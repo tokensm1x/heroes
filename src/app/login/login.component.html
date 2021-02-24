@@ -1,29 +1,30 @@
-<div class="register">
-  <h1>Log in</h1>
+<mat-spinner *ngIf="!loaded" diameter="80" class="spinner" class="register"></mat-spinner>
+<div class="register" *ngIf="loaded">
+  <h1>{{ 'auth.log_in' | translate }}</h1>
   <form class="example-form form-register">
     <mat-form-field class="example-full-width">
-      <mat-label>Email</mat-label>
+      <mat-label>{{ 'auth.email' | translate }}</mat-label>
       <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
       <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-        Please enter a valid email address
+        {{ 'auth.validation.email' | translate }}
       </mat-error>
       <mat-error *ngIf="emailFormControl.hasError('required')">
-        Email is required
+        {{ 'auth.validation.requiredEmail' | translate }}
       </mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <mat-label>Password</mat-label>
+      <mat-label>{{ 'auth.password' | translate }}</mat-label>
       <input type="password" matInput [formControl]="passwordFormControl">
       <mat-error *ngIf="passwordFormControl.hasError('minlength')">
-        min length 6 characters
+        {{ 'auth.validation.minPass' | translate }}
       </mat-error>
       <mat-error *ngIf="passwordFormControl.hasError('required')">
-        Password is required
+        {{ 'auth.validation.requiredPass' | translate }}
       </mat-error>
       <mat-error *ngIf="passwordFormControl.hasError('pattern')">
-        latin alphabet + numbers + _
+        {{ 'auth.validation.patternPass' | translate }}
       </mat-error>
     </mat-form-field>
   </form>
-  <button mat-raised-button color="primary" (click)="loginUser()" [disabled]="passwordFormControl.invalid || emailFormControl.invalid">Log in</button>
+  <button mat-raised-button color="primary" (click)="loginUser()" [disabled]="passwordFormControl.invalid || emailFormControl.invalid">{{ 'auth.login' | translate }}</button>
 </div>
