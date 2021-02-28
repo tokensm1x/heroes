@@ -67,7 +67,7 @@
               <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef ></th>
               <td mat-cell *matCellDef="let item" >
-                  <button mat-icon-button color="primary" (click)="openDialogDelete(item)">
+                  <button mat-icon-button color="primary" (click)="openDialogDelete(item)" *hasPermission="permission">
                       <mat-icon>delete</mat-icon>
                   </button>
               </td>
@@ -82,7 +82,7 @@
   </mat-card-content>
 </div>
 <mat-card-actions *ngIf="loaded">
-    <button mat-raised-button color="primary" *ngIf="access" (click)="save()" [disabled]="nameFormControl.invalid">{{ 'card.save' | translate}}</button>
+    <button mat-raised-button color="primary" *hasPermission="permission" (click)="save()" [disabled]="nameFormControl.invalid">{{ 'card.save' | translate}}</button>
     <button mat-raised-button color="primary" (click)="goBack()">{{ 'card.back' | translate}}</button>
 </mat-card-actions>
 </mat-card>

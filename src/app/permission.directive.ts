@@ -10,7 +10,7 @@ export class PermissionDirective {
     if(condition === "no_access") {
       this.viewContainer.clear();
     } else if (condition === "read_access"){
-      this.viewContainer.createEmbeddedView(this.templateRef);
+      this.viewContainer.clear();
     } else if (condition === "write_access") {
       this.viewContainer.createEmbeddedView(this.templateRef);
     }

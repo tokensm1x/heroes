@@ -22,13 +22,14 @@ export class HeroesComponent implements OnInit {
 
   permission: string;
 
+  read: boolean;
+
   constructor(private heroService: HeroService,
               public dialog: MatDialog,
               private _bottomSheet: MatBottomSheet) { }
 
   ngOnInit() {
     this.getHeroes();
-    this.permission = localStorage.getItem('permission');
   }
 
   openDialog() {
@@ -73,6 +74,7 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes().subscribe((heroes) => {
       this.heroes =  heroes
       if(!this.loaded) this.loaded = !this.loaded;
+      this.permission = localStorage.getItem('permission');
     });
   }
 

@@ -37,7 +37,7 @@ export class HeroDetailComponent implements OnInit {
 
   items: string[];
 
-  access: boolean;
+  permission: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -49,15 +49,6 @@ export class HeroDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHero();
-    this.getAccess();
-  }
-
-  getAccess() {
-    if(localStorage.getItem('permission') === 'read_access') {
-      this.access = false;
-    } else {
-      this.access = true;
-    }
   }
 
   cardNav(nav): void {
@@ -74,7 +65,7 @@ export class HeroDetailComponent implements OnInit {
         this.loaded = !this.loaded;
       });
     this.getHeroes();
-
+    this.permission = localStorage.getItem('permission');
   }
 
   goBack(): void {
