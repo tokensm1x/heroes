@@ -1,10 +1,12 @@
 <div class="heroes_table">
   <h3 class="mat-display-1" *ngIf="loaded">{{ 'heroes.title' | translate }}</h3>
-  <button *ngIf="loaded" class="dialog_button"
+  <div *hasPermission="permission">
+    <button *ngIf="loaded" class="dialog_button"
           mat-raised-button
           color="primary"
           (click)="openDialog()">{{ 'heroes.hero' | translate }}
-  </button>
+    </button>
+  </div>
   <table *ngIf="loaded" mat-table [dataSource]="heroes" class="mat-elevation-z8">
 
 
@@ -22,7 +24,7 @@
     <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef ></th>
     <td mat-cell *matCellDef="let hero" >
-        <button mat-icon-button color="primary" (click)="openDialogDelete(hero)">
+        <button mat-icon-button color="primary" (click)="openDialogDelete(hero)" *hasPermission="permission">
             <mat-icon>delete</mat-icon>
         </button>
     </td>

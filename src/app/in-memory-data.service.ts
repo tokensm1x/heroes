@@ -37,6 +37,13 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 14, name: 'ECLIPSE', health: '+2', power: '+2', image: 'https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt72195c8d98391772/5fa1f09df9cf41781dad68fe/6692_Assassin_T4_Eclipse.png', price: 1.4},
       {id: 15, name: 'GALEFORCE', health: '+2', power: '+2', image: 'https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltdb840312c272ed27/5fa1f0931f9166620ed88bf5/6671_Marksman_T4_Galeforce.png', price: 2},
     ];
+
+    const permissions: any[] = [
+      {name: 'd@d.com', level: 'no_access'},
+      {name: 'a@a.com', level: 'read_access'},
+      {name: 'b@b.com', level: 'write_access'}
+    ];
+
     const translates: any[] = [
       {
         "header": {
@@ -233,7 +240,7 @@ export class InMemoryDataService implements InMemoryDbService {
         }
       }
     ]
-    return {heroes, items, translates };
+    return { heroes, items, translates, permissions };
   }
 
   genId(heroes: Hero[]): number {

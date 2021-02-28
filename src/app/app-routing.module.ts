@@ -7,12 +7,13 @@ import { StoreComponent } from './store/store.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
+import { PermissionGuard } from './permission.guard';
 
 const routes: Routes = [
   { path: 'heroes', component: HeroesComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'detail/:id', component: HeroDetailComponent, canActivate: [AuthGuard]},
+  { path: 'detail/:id', component: HeroDetailComponent, canActivate: [PermissionGuard]},
   { path: 'store', component: StoreComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

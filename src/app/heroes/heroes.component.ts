@@ -8,6 +8,7 @@ import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component'
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { BottomSheetDialogComponent } from '../bottom-sheet-dialog/bottom-sheet-dialog.component';
 
+
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
@@ -19,12 +20,15 @@ export class HeroesComponent implements OnInit {
 
   loaded: boolean = false;
 
+  permission: string;
+
   constructor(private heroService: HeroService,
               public dialog: MatDialog,
               private _bottomSheet: MatBottomSheet) { }
 
   ngOnInit() {
     this.getHeroes();
+    this.permission = localStorage.getItem('permission');
   }
 
   openDialog() {

@@ -45,6 +45,7 @@ import { AuthGuard } from './auth.guard';
 import { HeroService } from './hero.service';
 import { StoreService } from './store.service';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { PermissionDirective } from './permission.directive';
 
 
 
@@ -62,6 +63,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     StoreComponent,
     RegisterComponent,
     LoginComponent,
+    PermissionDirective
   ],
   entryComponents: [
     DialogFormAddComponent,
@@ -97,6 +99,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     MatDividerModule,
     TranslateModule.forRoot()
   ],
+  
   providers: [AuthService, AuthGuard, HeroService, StoreService, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
