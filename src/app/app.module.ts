@@ -46,6 +46,7 @@ import { HeroService } from './hero.service';
 import { StoreService } from './store.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { PermissionDirective } from './permission.directive';
+import { PermissionPipe } from './permission.pipe';
 
 
 
@@ -63,7 +64,8 @@ import { PermissionDirective } from './permission.directive';
     StoreComponent,
     RegisterComponent,
     LoginComponent,
-    PermissionDirective
+    PermissionDirective,
+    PermissionPipe
   ],
   entryComponents: [
     DialogFormAddComponent,
@@ -99,7 +101,7 @@ import { PermissionDirective } from './permission.directive';
     MatDividerModule,
     TranslateModule.forRoot()
   ],
-  
+
   providers: [AuthService, AuthGuard, HeroService, StoreService, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

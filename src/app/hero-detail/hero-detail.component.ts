@@ -14,11 +14,24 @@ import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component'
 import { MatDialog } from '@angular/material/dialog';
 
 
+const logMethod = (
+  target: Object,
+  propertyKey: string | symbol,
+  descriptor: PropertyDescriptor
+) => {
+    if(localStorage.getItem('permission') !== 'write_access') {
+      descriptor.value = () => {
+        console.log('NO ACCESS');
+      }
+    };
+};
+
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css']
 })
+
 export class HeroDetailComponent implements OnInit {
 
   @Input() hero: Hero;
@@ -72,6 +85,7 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
+  @logMethod
   save(): void {
     this.heroService.updateHero(this.hero)
       .subscribe();

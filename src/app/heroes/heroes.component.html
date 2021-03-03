@@ -24,7 +24,7 @@
     <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef ></th>
     <td mat-cell *matCellDef="let hero" >
-        <button mat-icon-button color="primary" (click)="openDialogDelete(hero)" *hasPermission="permission">
+        <button mat-icon-button color="primary" (click)="openDialogDelete(hero)" *ngIf="permission | hasPermission">
             <mat-icon>delete</mat-icon>
         </button>
     </td>
